@@ -211,7 +211,7 @@
           "searchVersion": 1
         }
       },
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2015-11-01-preview",
       "name": "[parameters('WorkspaceName')]",
       "type": "Microsoft.OperationalInsights/workspaces",
       "tags": { "displayName": "Workshop - Log Analytics Workspace" },
@@ -230,8 +230,8 @@
         "enabled": true,
         "emailReceivers": [
           {
-            "name": "WorkShopMail",
             "emailAddress": "[parameters('ActionGroupEmailRecipients')]",
+            "name": "WorkShopMail",
             "status": "Enabled"
           }
         ],
@@ -564,13 +564,13 @@
       }
     },
     {
-      "comments": "",
-      "type": "microsoft.devtestlab/schedules",
-      "name": "[variables('VM1ShutdownTask')]",
-      "tags": { "displayName": "VM1 - Shutdown task" },
       "apiVersion": "2016-05-15",
+      "comments": "",
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines', parameters('VM1Name'))]"
+      ],
       "location": "[resourceGroup().location]",
-      "scale": null,
+      "name": "[variables('VM1ShutdownTask')]",
       "properties": {
         "status": "Enabled",
         "taskType": "ComputeVmShutdownTask",
@@ -586,19 +586,19 @@
         "provisioningState": "Succeeded",
         "uniqueIdentifier": "2a85d40b-2031-4a68-a19d-7bf2eed5afee"
       },
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines', parameters('VM1Name'))]"
-      ]
+      "scale": null,
+      "tags": { "displayName": "VM1 - Shutdown task" },
+      "type": "microsoft.devtestlab/Labs/schedules"
     },
 
     {
-      "comments": "",
-      "type": "microsoft.devtestlab/schedules",
-      "name": "[variables('VM2ShutdownTask')]",
-      "tags": { "displayName": "VM2 - Shutdown task" },
       "apiVersion": "2016-05-15",
+      "comments": "",
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines', parameters('VM2Name'))]"
+      ],
       "location": "[resourceGroup().location]",
-      "scale": null,
+      "name": "[variables('VM2ShutdownTask')]",
       "properties": {
         "status": "Enabled",
         "taskType": "ComputeVmShutdownTask",
@@ -614,9 +614,9 @@
         "provisioningState": "Succeeded",
         "uniqueIdentifier": "2a85d40b-2031-4a68-a19d-7bf2eed5afee"
       },
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines', parameters('VM2Name'))]"
-      ]
+      "scale": null,
+      "tags": { "displayName": "VM2 - Shutdown task" },
+      "type": "microsoft.devtestlab/Labs/schedules"
     }
   ],
   "variables": {
