@@ -70,7 +70,7 @@
     },
     "VM1OSDiskName": {
       "metadata": {
-        "description": "The name of VM OS Disk "
+        "description": "The name of VM OS Disk"
       },
       "type": "string"
     },
