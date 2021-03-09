@@ -22,6 +22,6 @@
     "VM2PublicIPAddressName": { "value": "vm2publicip" },
     "VMSize": { "value": "Standard_D2s_v3" },
     "vnetName": { "value": "workshopvnet" },
-    "WorkspaceName": { "value": "workshop<-Marco-19761209>" }
+    "WorkspaceName": { "value": "workshop-Marco-19761209" }
   }
 }
